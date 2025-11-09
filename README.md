@@ -1,16 +1,49 @@
 # NHS-waiting-times-2022
-1. Project Overview
-This report analyses NHS England Referral-to-Treatment (RTT) waiting times (August 2022, provider level) and links them with the Adult Inpatient Survey 2022 (trust-level satisfaction scores).
-The aims for Version 1 are:
+## Project Overview
+
+This report analyses NHS England Referral-to-Treatment (RTT) waiting times
+(August 2022, provider level) and links them with the Adult Inpatient Survey 
+2022 (trust-level satisfaction scores).
+
+The aims for Version 1 are to:
+
 build a clean dataset suitable for further modelling in later versions;
-produce descriptive statistics and exploratory graphics for RTT;
-integrate patient satisfaction (overall mean score) and run a simple correlation/regression to motivate subsequent analyses.
 
-Why this dataset (brief): It connects my clinical pharmacy background with current studies in Operational Research & Data Science, focusing on patient flow, waiting-time targets, and perceived care quality—topics directly relevant to data analytics roles in healthcare.
+produce descriptive statistics and exploratory graphics for RTT; and
 
-2. Data Sources
-RTT waiting times (Aug 2022) — NHS England “Incomplete pathways – Provider level”.
-Adult Inpatient Survey 2022 — Trust-level scores (sheet: Trust_Scores), overall satisfaction meanS09.
+integrate patient satisfaction (overall mean score) to run a simple 
+correlation/regression that motivates subsequent analyses.
+
+This dataset was chosen because it connects my clinical pharmacy background 
+with my current studies in Operational Research and Data Science, focusing on 
+patient flow, waiting-time targets, and perceived care quality — topics directly
+relevant to future roles in healthcare data analytics and operational 
+optimisation.
+
+## Data Sources and Preparation
+
+The analysis draws on two publicly available datasets from NHS England:
+
+RTT Waiting Times (August 2022) — Incomplete Pathways: Provider Level data.
+
+Adult Inpatient Survey 2022 — Trust-level scores (sheet: Trust_Scores),
+including the overall satisfaction measure meanS09.
+
+To ensure consistency and reproducibility, both datasets were processed in R
+(tidyverse framework) prior to integration.
+The RTT dataset was filtered to include only total treatment pathways 
+(“Total / All specialties”) for each NHS Trust. Key variables — provider code,
+provider name, median waiting time (weeks), and percentage within 
+18 weeks — were retained and converted to numeric form.
+
+The Adult Inpatient Survey data were extracted from the Trust_Scores worksheet, 
+keeping the provider code, trust name, and overall satisfaction score (meanS09).
+
+Both datasets were then merged by provider code to produce a unified dataset 
+named merged_NHS_RTT_Satisfaction_2022.csv, which forms the analytical basis 
+for this version of the report. The cleaned RTT dataset (waiting_clean_2022.csv)
+and the merged dataset are included in the submission and made publicly 
+accessible via GitHub for reproducibility.
 
 ---
 title: "Math6006-Coursework"
