@@ -72,7 +72,7 @@ waiting_df <- read_excel(
   skip = 13
 )
 
-glimpse(waiting_df)
+waiting_df %>% select(1:10) %>% head()
 ```
 
 
@@ -243,18 +243,9 @@ model <- lm(Satisfaction_Score ~ Median_Wait_Weeks, data = merged_df)
 summary(model)
 ```
 
-# 6. Optional: Validation 
+# 6. Dataset access
+The cleaned and merged dataset for this analysis is publicly available at:
 
-### Check merged data
-```{r}
-glimpse(merged_df)
-sum(is.na(merged_df$Satisfaction_Score))
-```
+https://github.com/Lsn1122/NHS-waiting-times-2022/blob/main/merged_NHS_RTT_Satisfaction_2022.csv
 
-### Reload verification
-
-```{r}
-check_df <- read_csv("D:/UOS-study&Career/UOS-Math6006/merged_NHS_RTT_Satisfaction_2022.csv")
-glimpse(check_df)
-```
-### End of Script
+https://github.com/Lsn1122/NHS-waiting-times-2022/blob/main/waiting_clean_2022.csv
