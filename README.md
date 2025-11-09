@@ -144,6 +144,18 @@ ggplot(top10, aes(x = reorder(Provider_Name, Median_Wait_Weeks), y = Median_Wait
   theme_minimal()
 ```
 
+### Top 10 shortest wait
+```{r}
+bottom10 <- waiting_clean %>% arrange(Median_Wait_Weeks) %>% head(10)
+
+ggplot(bottom10, aes(x = reorder(Provider_Name, -Median_Wait_Weeks), y = Median_Wait_Weeks)) +
+  geom_col(fill = "#0072B2") + coord_flip() +
+  labs(title = "Top 10 NHS Trusts by Shortest Median Waiting Time (2022)",
+       x = "Provider Name", y = "Median Waiting Time (weeks)") +
+  theme_minimal()
+
+```
+
 # 4. Load and Merge Satisfaction Data (Adult Inpatient 2022)
 ```{r}
 satisfaction_df <- read_ods(
